@@ -1,2 +1,2 @@
 # eNotebook
-iNotebook is a personalized notes management tool which helps users to seamlessly log in or sign up to create, edit, and organize notes effectively. It uses MongoDB to store data. It is responsive in nature.
+eNotebook is a personalized notes management tool which allows users to seamlessly log in or sign up to create, edit, and organize notes effectively. Uses MongoDB to store data. Responsive in nature and seamlessly adapts to both laptop and mobile devices.
