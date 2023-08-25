@@ -3,7 +3,7 @@ import NoteContext from "./NoteContext"; //Context is similar to a container whi
 
 const NoteState = (props)=>{
 	// const host = "http://localhost:5000";
-	const host = "https://enotebook-api.vercel.app/";
+	const host = "https://enotebook-api.vercel.app";
 	const [notes,setNotes] = useState([]);
 
 	//Fetch all notes
