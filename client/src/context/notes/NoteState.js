@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import NoteContext from "./NoteContext"; //Context is similar to a container which contains states which can be accessed by all components in a hierarchy. See App.js, all the components wrapped under NoteState will have access to states defined in NoteState
 
 const NoteState = (props)=>{
-	const host = "http://localhost:5000";
+	// const host = "http://localhost:5000";
+	const host = "https://enotebook-api.vercel.app/";
 	const [notes,setNotes] = useState([]);
 
 	//Fetch all notes
