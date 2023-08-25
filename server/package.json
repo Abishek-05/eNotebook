@@ -1,7 +1,7 @@
 {
-  "name": "inotebook-backend",
+  "name": "enotebook-backend",
   "version": "1.0.0",
-  "description": "inotebook - Your cloud based notebook",
+  "description": "enotebook - Your cloud based notebook",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
