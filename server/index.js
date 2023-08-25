@@ -10,13 +10,7 @@ const port = 5000;
 
 app.use(express.json()); //Used to get access to req body
 // app.use(express.urlencoded({ extended: true }));
-app.use(cors(
-	{
-		origin : ["https://enotebook-ui.vercel.app/login"],
-		methods : ["GET","POST","PUT","DELETE"],
-		credentials : true
-	}
-));
+app.use(cors());
 
 app.use('/api/auth', authRouter);
 app.use('/api/notes', notesRouter);
