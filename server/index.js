@@ -22,5 +22,5 @@ app.use('/api/auth', authRouter);
 app.use('/api/notes', notesRouter);
 
 app.listen(port, () => {
-  console.log(`iNotebook backend listening on port ${port}`)
+  console.log(`eNotebook backend listening on port ${port}`)
 });
