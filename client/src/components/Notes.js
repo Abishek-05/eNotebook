@@ -57,8 +57,8 @@ const Notes = () => {
 							</div>
 
 							<div className="mb-4">
-								<label htmlFor="title" className="form-label">Tag</label>
-								<input type="text" className="form-control text-bg-dark" id="title" name="title" value={note.tag} onChange={handleDataChange}/> 
+								<label htmlFor="tag" className="form-label">Tag</label>
+								<input type="text" className="form-control text-bg-dark" id="tag" name="tag" value={note.tag} onChange={handleDataChange}/> 
 							</div>
 							<div className="modal-footer">
 								<button disabled={note.title.length < 5 || note.description.length < 5 } type="submit" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal">Update</button>
