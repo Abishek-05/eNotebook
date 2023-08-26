@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import loadingImg from '../loadingImg.gif'
+
 const Login = (props) => {
+	const [loginbtn, setLoginbtn] = useState(true);
+	const [loader, setLoader] = useState(false);
+
 	const {showAlert} = props;
 	const [credentials, setCredentials] = useState({email:"", password:""});
 	let naviagte = useNavigate();
@@ -10,6 +15,10 @@ const Login = (props) => {
 	}
 	const handleSubmit = async (e)=>{
 		e.preventDefault();
+
+		setLoginbtn(false);
+		setLoader(true);
+
 		// const host = "http://localhost:5000";
 		const host = "https://enotebook-api-abishek-05.vercel.app";
 		const response = await fetch(`${host}/api/auth/login`, {
@@ -35,6 +44,8 @@ const Login = (props) => {
 			const errorMsg = respJson.error ?respJson.error :respJson.errors[0].msg;
 			showAlert(errorMsg, "danger");
 		}
+		setLoginbtn(true);
+		setLoader(false);
 	}
 
 	return (
@@ -50,7 +61,8 @@ const Login = (props) => {
 				<label htmlFor="password" className="form-label">Password</label>
 				<input type="password" className="form-control text-bg-dark" id="password" name="password" value={credentials.password} onChange={handleDataChange}/>
 			</div>
-			<button type="submit" className="btn btn-primary">Login</button>
+			{loader && <img src={loadingImg} width="100px" height="100px" alt="Loading"/>}
+			{loginbtn && <button type="submit" className="btn btn-primary loginbtn">Login</button>}
 		</form>
 	</div>
 	)

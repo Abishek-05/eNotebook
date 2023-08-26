@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import loadingImg from '../loadingImg.gif'
 
 const Signup = (props) => {
+	const [signupbtn, setSignupbtn] = useState(true);
+	const [loader, setLoader] = useState(false);
 	const {showAlert} = props;
 	const [credentials, setCredentials] = useState({name:"",email:"", password:"",cpassword:""});
 	let naviagte = useNavigate();
@@ -11,6 +14,10 @@ const Signup = (props) => {
 	}
 	const handleSubmit = async (e)=>{
 		e.preventDefault();
+
+		setSignupbtn(false);
+		setLoader(true);
+
 		// const host = "http://localhost:5000";
 		const host = "https://enotebook-api-abishek-05.vercel.app";
 		const response = await fetch(`${host}/api/auth/createuser`, {
@@ -36,6 +43,8 @@ const Signup = (props) => {
 			const errorMsg = respJson.error !== undefined ?respJson.error :respJson.errors[0].msg;
 			showAlert(errorMsg, "danger");
 		}
+		setSignupbtn(true);
+		setLoader(false);
 	}
 
 	return (
@@ -63,7 +72,8 @@ const Signup = (props) => {
 				</label>
 				<input type="password" className="form-control text-bg-dark" id="cpassword" name="cpassword" value={credentials.cpassword} onChange={handleDataChange} minLength={5} required/>
 			</div>
-			<button disabled = {credentials.password !== credentials.cpassword} type="submit" className="btn btn-primary">Sign up</button>
+			{loader && <img src={loadingImg} width="100px" height="100px" alt="Loading"/>}
+			{signupbtn && <button disabled = {credentials.password !== credentials.cpassword} type="submit" className="btn btn-primary">Sign up</button>}
 		</form>
 	</div>
 	)
