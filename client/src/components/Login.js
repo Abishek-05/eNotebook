@@ -11,7 +11,7 @@ const Login = (props) => {
 	const handleSubmit = async (e)=>{
 		e.preventDefault();
 		// const host = "http://localhost:5000";
-		const host = "https://enotebook-api.vercel.app";
+		const host = "https://enotebook-api-abishek-05.vercel.app";
 		const response = await fetch(`${host}/api/auth/login`, {
 			method: "POST",
 			headers: {
